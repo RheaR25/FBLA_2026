@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - FBLA</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="dashboard-page">
+    <!-- Navigation Bar -->
+    <nav class="main-nav">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <a href="index.html">MHS Findr</a>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="dashboard.html" class="nav-link active">Dashboard</a></li>
+                <li><a href="browse.html" class="nav-link">Browse</a></li>
+                <li><a href="report.html" class="nav-link">Report</a></li>
+                <li><a href="help.html" class="nav-link">Help</a></li>
+            </ul>
+            <div class="nav-user">
+                <span id="userEmail" class="user-email"></span>
+                <button id="logoutBtn" class="btn btn-secondary btn-nav">Log Out</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Loading State -->
+        <div id="loadingState" class="loading-state">
+            <div class="loading-spinner"></div>
+            <p>Loading...</p>
+        </div>
+
+        <!-- Error State -->
+        <div id="errorState" class="error-state" style="display: none;">
+            <div class="error-content">
+                <h2>Access Denied</h2>
+                <p>Please log in to access the dashboard.</p>
+                <a href="login.html" class="btn btn-primary">Go to Login</a>
+            </div>
+        </div>
+
+        <!-- Teacher Dashboard -->
+        <div id="teacherDashboard" class="dashboard-content" style="display: none;">
+            <div class="page-header">
+                <h1>Teacher Dashboard</h1>
+                <p class="page-subtitle">Manage approvals and view student information</p>
+            </div>
+
+            <div class="dashboard-grid">
+                <!-- Account Information Card -->
+                <div class="dashboard-card account-card">
+                    <div class="card-header">
+                        <h2>Account Information</h2>
+                    </div>
+                    <div class="card-body">
+                        <div class="info-grid">
+                            <div class="info-item">
+                                <span class="info-label">Email</span>
+                                <span id="teacherEmail" class="info-value"></span>
+                            </div>
+                            <div class="info-item">
+                                <span class="info-label">Role</span>
+                                <span id="teacherRole" class="role-badge role-teacher">Teacher</span>
+                            </div>
+                            <div class="info-item">
+                                <span class="info-label">Member Since</span>
+                                <span id="teacherCreatedAt" class="info-value"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Pending Items Card -->
+                <div class="dashboard-card pending-items-card">
+                    <div class="card-header">
+                        <h2>Items Pending Approval</h2>
+                        <span id="pendingCount" class="badge-count">0</span>
+                    </div>
+                    <div class="card-body">
+                        <div id="pendingItems" class="items-list">
+                            <p class="empty-message">No items pending approval.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Pending Claims Card -->
+                <div class="dashboard-card pending-claims-card">
+                    <div class="card-header">
+                        <h2>Claims Pending Review</h2>
+                        <span id="pendingClaimsCount" class="badge-count">0</span>
+                    </div>
+                    <div class="card-body">
+                        <div id="pendingClaims" class="items-list">
+                            <p class="empty-message">No claims pending review.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Student Directory Card -->
+                <div class="dashboard-card directory-card">
+                    <div class="card-header">
+                        <h2>Student Directory</h2>
+                        <span id="studentCount" class="badge-count">0</span>
+                    </div>
+                    <div class="card-body">
+                        <div id="studentDirectory" class="directory-list">
+                            <p class="empty-message">No students found.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Student Dashboard -->
+        <div id="studentDashboard" class="dashboard-content" style="display: none;">
+            <div class="page-header">
+                <h1>Student Dashboard</h1>
+                <p class="page-subtitle">View your posted and claimed items</p>
+            </div>
+
+            <div class="dashboard-grid">
+                <!-- Account Information Card -->
+                <div class="dashboard-card account-card">
+                    <div class="card-header">
+                        <h2>Account Information</h2>
+                    </div>
+                    <div class="card-body">
+                        <div class="info-grid">
+                            <div class="info-item">
+                                <span class="info-label">Email</span>
+                                <span id="studentEmail" class="info-value"></span>
+                            </div>
+                            <div class="info-item">
+                                <span class="info-label">Role</span>
+                                <span id="studentRole" class="role-badge role-student">Student</span>
+                            </div>
+                            <div class="info-item">
+                                <span class="info-label">Member Since</span>
+                                <span id="studentCreatedAt" class="info-value"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- My Items Card -->
+                <div class="dashboard-card my-items-card">
+                    <div class="card-header">
+                        <h2>My Items</h2>
+                        <span id="myItemsCount" class="badge-count">0</span>
+                    </div>
+                    <div class="card-body">
+                        <div id="myItems" class="items-list">
+                            <p class="empty-message">You haven't posted or claimed any items yet.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Notifications Card -->
+                <div class="dashboard-card notifications-card">
+                    <div class="card-header">
+                        <h2>Notifications</h2>
+                    </div>
+                    <div class="card-body">
+                        <div id="notifications" class="notifications-container">
+                            <p class="empty-message">No notifications.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="main-footer">
+        <div class="footer-container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>FBLA</h3>
+                    <p>Future Business Leaders of America</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="dashboard.html">Dashboard</a></li>
+                        <li><a href="browse.html">Browse</a></li>
+                        <li><a href="report.html">Report</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Support</h4>
+                    <ul class="footer-links">
+                        <li><a href="help.html">Help Center</a></li>
+                        <li><a href="login.html">Login</a></li>
+                        <li><a href="signup.html">Sign Up</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 FBLA. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="dashboard.js"></script>
+
+    <!-- Chatbot -->
+    <div class="chatbot-container" id="chatbot">
+    <div class="chatbot-header">
+        <span>MHS Findr Help Bot</span>
+        <button id="closeChatbot">×</button>
+    </div>
+
+    <div class="chatbot-messages" id="chatbotMessages">
+            <div class="bot-message">
+                Hi! 👋 I’m the MHS Findr Help Bot.  
+                Ask me about reporting items, claiming items, or using the site.
+            </div>
+        </div>
+
+        <div class="chatbot-input">
+            <input type="text" id="chatbotInput" placeholder="Type your question..." />
+            <button id="sendMessage">Send</button>
+        </div>
+    </div>
+
+<button class="chatbot-toggle" id="openChatbot">💬 Help</button>
+<script src="chatbot.js"></script>
+</body>
+</html>
+

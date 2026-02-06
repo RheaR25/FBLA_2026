@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Report Lost Item - FBLA</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="dashboard-page">
+    <!-- Navigation Bar -->
+    <nav class="main-nav">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <a href="index.html">MHS Findr</a>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="dashboard.html" class="nav-link">Dashboard</a></li>
+                <li><a href="browse.html" class="nav-link">Browse</a></li>
+                <li><a href="report.html" class="nav-link active">Report</a></li>
+                <li><a href="help.html" class="nav-link">Help</a></li>
+            </ul>
+            <div class="nav-user">
+                <span id="userEmail" class="user-email"></span>
+                <button id="logoutBtn" class="btn btn-secondary btn-nav">Log Out</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="page-header">
+            <h1>Report Lost Item</h1>
+            <p class="page-subtitle">Fill out the form below to report a lost or found item</p>
+        </div>
+
+        <!-- Report Form -->
+        <div class="form-container">
+            <form id="reportForm" class="report-form">
+                <div class="form-group">
+                    <label for="itemName">Item Name *</label>
+                    <input 
+                        type="text" 
+                        id="itemName" 
+                        name="itemName" 
+                        required 
+                        placeholder="e.g., Backpack, Water Bottle, Calculator"
+                        autocomplete="off"
+                    >
+                </div>
+
+                <div class="form-group">
+                    <label for="location">Where was it found? *</label>
+                    <input 
+                        type="text" 
+                        id="location" 
+                        name="location" 
+                        required 
+                        placeholder="e.g., Main Building Room 205, Cafeteria, Gym"
+                        autocomplete="off"
+                    >
+                </div>
+
+                <div class="form-group">
+                    <label for="description">Description *</label>
+                    <textarea 
+                        id="description" 
+                        name="description" 
+                        required 
+                        rows="4"
+                        placeholder="Provide a brief description of the item, any distinguishing features, brand name, etc."
+                    ></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="itemPhoto">Item Photo</label>
+                    <input 
+                        type="file" 
+                        id="itemPhoto" 
+                        name="itemPhoto" 
+                        accept="image/*"
+                        class="file-input"
+                    >
+                    <!-- Upload Photo -->
+                    <small class="help-text">Upload a photo of the item (optional but recommended)</small>
+                    <div id="photoPreview" class="photo-preview" style="display: none;">
+                        <img id="previewImage" src="" alt="Preview">
+                        <button type="button" id="removePhoto" class="btn-remove-photo">Remove Photo</button>
+                    </div>
+                </div>
+
+                <!-- Color Options -->
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="color">Color *</label>
+                        <select id="color" name="color" required>
+                            <option value="">Select a color</option>
+                            <option value="Black">Black</option>
+                            <option value="White">White</option>
+                            <option value="Gray">Gray</option>
+                            <option value="Red">Red</option>
+                            <option value="Blue">Blue</option>
+                            <option value="Green">Green</option>
+                            <option value="Yellow">Yellow</option>
+                            <option value="Orange">Orange</option>
+                            <option value="Purple">Purple</option>
+                            <option value="Pink">Pink</option>
+                            <option value="Brown">Brown</option>
+                            <option value="Beige">Beige</option>
+                            <option value="Navy">Navy</option>
+                            <option value="Maroon">Maroon</option>
+                            <option value="Multi-color">Multi-color</option>
+                            <option value="Other">Other</option>
+                        </select>
+                    </div>
+
+                    <!-- Size Options-->
+                    <div class="form-group">
+                        <label for="size">Size *</label>
+                        <select id="size" name="size" required>
+                            <option value="">Select a size</option>
+                            <option value="Extra Small">Extra Small</option>
+                            <option value="Small">Small</option>
+                            <option value="Medium">Medium</option>
+                            <option value="Large">Large</option>
+                            <option value="Extra Large">Extra Large</option>
+                            <option value="One Size">One Size</option>
+                            <option value="N/A">N/A</option>
+                        </select>
+                    </div>
+                </div>
+
+                <button type="submit" class="btn btn-primary" id="submitBtn">
+                    Submit Report
+                </button>
+
+                <div id="errorMessage" class="error-message" style="display: none;"></div>
+                <div id="successMessage" class="success-message" style="display: none;"></div>
+            </form>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="main-footer">
+        <div class="footer-container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>FBLA</h3>
+                    <p>Future Business Leaders of America</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="dashboard.html">Dashboard</a></li>
+                        <li><a href="browse.html">Browse</a></li>
+                        <li><a href="report.html">Report</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Support</h4>
+                    <ul class="footer-links">
+                        <li><a href="help.html">Help Center</a></li>
+                        <li><a href="login.html">Login</a></li>
+                        <li><a href="signup.html">Sign Up</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 FBLA. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="report.js"></script>
+
+    <!-- Chatbot -->
+    <div class="chatbot-container" id="chatbot">
+    <div class="chatbot-header">
+        <span>MHS Findr Help Bot</span>
+        <button id="closeChatbot">×</button>
+    </div>
+
+    <div class="chatbot-messages" id="chatbotMessages">
+            <div class="bot-message">
+                Hi! 👋 I’m the MHS Findr Help Bot.  
+                Ask me about reporting items, claiming items, or using the site.
+            </div>
+        </div>
+
+        <div class="chatbot-input">
+            <input type="text" id="chatbotInput" placeholder="Type your question..." />
+            <button id="sendMessage">Send</button>
+        </div>
+    </div>
+
+<button class="chatbot-toggle" id="openChatbot">💬 Help</button>
+<script src="chatbot.js"></script>
+</body>
+</html>
+

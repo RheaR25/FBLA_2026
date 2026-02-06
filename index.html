@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Findr - Home</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="index-page">
+    <!-- Navigation Bar -->
+    <nav class="main-nav">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <a href="index.html">MHS Findr</a>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link active">Home</a></li>
+                <li><a href="dashboard.html" class="nav-link">Dashboard</a></li>
+                <li><a href="browse.html" class="nav-link">Browse</a></li>
+                <li><a href="report.html" class="nav-link">Report</a></li>
+                <li><a href="help.html" class="nav-link">Help</a></li>
+            </ul>
+            <div class="nav-user">
+                <span id="userEmail" class="user-email"></span>
+                <button id="logoutBtn" class="btn btn-secondary btn-nav">Log Out</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section Sliders -->
+    <main class="main-content">
+    <section class="hero-section">
+        <div class="hero-slides">
+            <div class="slide">
+                <h2>Welcome to MHS Findr</h2>
+                <p>Tigers Help Tigers - a lost &amp; found system for Middleton High School students.</p>
+            </div>
+
+            <div class="slide">
+                <h2>Browse Items</h2>
+                <p>Find reported lost items and help reunite them with their owners.</p>
+                <div class="cta-buttons">
+                    <a href="browse.html" class="btn btn-primary">Browse Items</a>
+                </div>
+            </div>
+
+            <div class="slide">
+                <h2>Report an Item</h2>
+                <p>Report lost or found items so teachers can review and approve posts.</p>
+                <div class="cta-buttons">
+                    <a href="report.html" class="btn btn-primary">Report an Item</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Us Section -->
+    <section class="about-section" id="about">
+    <div class="about-container">
+        <h2>About Us</h2>
+        <p>
+        At Middleton High School, our mission is to help students find their belongings and support one another. 80% of students look supplies, lunch boxes, and clothing at school according PRNewsWire.com Tigers Help Tiger is a student-centered lost &amp; found platform where students can report lost or found items, browse reported items, and reconnect owners with their property. We partner with teachers who review and approve reports to ensure safety and accuracy, and we strive to make the process simple, quick, and caring so that every student can feel supported when they lose something important.
+        </p>
+    </div>
+    </section>
+
+    <!-- Instructions -->
+    <section class="instructions">
+        <h2>How to Use Our Platform</h2>
+        <div class="instruction-grid">
+            <div class="instruction-card">
+                <h3>1. Create Your Account</h3>
+                <ol>
+                    <li>Click on the <strong>Sign Up</strong> button at the top-right corner of the page.</li>
+                    <li>Fill in your <strong>email</strong>, <strong>password</strong>, and any other required information.</li>
+                    <li>Choose your <strong>role</strong> (Teacher or Student). This determines the features you will have access to.</li>
+                    <li>Check your email for a confirmation link to verify your account before logging in.</li>
+                </ol>
+            </div>
+
+            <div class="instruction-card">
+                <h3>2. Logging In</h3>
+                <ol>
+                    <li>Click on the <strong>Login</strong> button at the top-right corner of the page.</li>
+                    <li>Enter the email and password you used to sign up.</li>
+                    <li>Once logged in, your <strong>dashboard</strong> will display your relevant content and actions.</li>
+                    <li>If you forget your password, use the <strong>Forgot Password</strong> link to reset it via email.</li>
+                </ol>
+            </div>
+
+            <div class="instruction-card">
+                <h3>3. Navigating the Dashboard</h3>
+                <ol>
+                    <li>The dashboard displays all your key information at a glance:</li>
+                    <li>Teachers can view <strong>pending items</strong>, <strong>pending claims</strong>, and the <strong>student directory</strong>.</li>
+                    <li>Students can view their own items, claims, and notifications.</li>
+                    <li>The top navigation bar shows your email and a <strong>Logout</strong> button for easy account management.</li>
+                    <li>All content cards are clickable, allowing you to expand and interact with detailed information.</li>
+                </ol>
+            </div>
+
+            <div class="instruction-card">
+                <h3>4. Posting and Claiming Items</h3>
+                <ol>
+                    <li>Students can post items by filling out the <strong>Report Form</strong>, providing a title, description, and optional photo.</li>
+                    <li>Teachers review all newly submitted items and can approve or reject them directly from the dashboard.</li>
+                    <li>Once approved, items become visible for students to claim.</li>
+                    <li>When claiming an item, provide any requested proof to verify ownership. Teachers will review the claim and approve or reject it.</li>
+                </ol>
+            </div>
+
+            <div class="instruction-card">
+                <h3>5. Notifications</h3>
+                <ol>
+                    <li>Notifications alert you to important updates, such as approval or rejection of items or claims.</li>
+                    <li>Unread notifications are highlighted for easy identification.</li>
+                    <li>Click on a notification to mark it as read and view full details.</li>
+                    <li>Once you get the notification that your claim has ben approved make your way to the guidance office to pick up your item and show them the approval.</li>
+                </ol>
+            </div>
+
+            <div class="instruction-card">
+                <h3>6. Key Features Overview</h3>
+                <ol>
+                    <li><strong>Real-time updates:</strong> The dashboard automatically updates when new items or claims are submitted.</li>
+                    <li><strong>Responsive layout:</strong> Access the platform on desktops, tablets, or mobile devices seamlessly.</li>
+                    <li><strong>Secure authentication:</strong> User roles and Supabase auth ensure that only authorized actions are allowed.</li>
+                    <li><strong>Photo upload support:</strong> Attach images to items for better visibility and verification.</li>
+                    <li><strong>Clear visual indicators:</strong> Status badges (Pending, Approved, Rejected) make it easy to see item progress at a glance.</li>
+                </ol>
+            </div>
+        </div>
+    </section>
+
+    </main>
+<!-- Footer -->
+    <footer class="main-footer">
+        <div class="footer-container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>FBLA</h3>
+                    <p>Future Business Leaders of America</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="dashboard.html">Dashboard</a></li>
+                        <li><a href="browse.html">Browse</a></li>
+                        <li><a href="report.html">Report</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Support</h4>
+                    <ul class="footer-links">
+                        <li><a href="help.html">Help Center</a></li>
+                        <li><a href="login.html">Login</a></li>
+                        <li><a href="signup.html">Sign Up</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 FBLA. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Chatbot -->
+    <div class="chatbot-container" id="chatbot">
+    <div class="chatbot-header">
+        <span>MHS Findr Help Bot</span>
+        <button id="closeChatbot">×</button>
+    </div>
+
+    <div class="chatbot-messages" id="chatbotMessages">
+            <div class="bot-message">
+                Hi! 👋 I’m the MHS Findr Help Bot.  
+                Ask me about reporting items, claiming items, or using the site.
+            </div>
+        </div>
+
+        <div class="chatbot-input">
+            <input type="text" id="chatbotInput" placeholder="Type your question..." />
+            <button id="sendMessage">Send</button>
+        </div>
+    </div>
+
+<button class="chatbot-toggle" id="openChatbot">💬 Help</button>
+<script src="chatbot.js"></script>
+</body>
+</html>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script>
+const SUPABASE_URL = 'https://jbanjopyzckxgllpyknr.supabase.co';
+const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImpiYW5qb3B5emNreGdsbHB5a25yIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjcxOTg4MzQsImV4cCI6MjA4Mjc3NDgzNH0.DSr8IgZ4DlUsr4PaPDv0mfrL6KgmTKJ7pVAcMbIghVI';
+
+const supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
+document.addEventListener('DOMContentLoaded', async () => {
+    const logoutBtn = document.getElementById('logoutBtn');
+    const userEmail = document.getElementById('userEmail');
+
+    // Display email if logged in
+    const { data: { session } } = await supabaseClient.auth.getSession();
+    if (session?.user && userEmail) {
+        userEmail.textContent = session.user.email;
+    }
+
+    // Attach logout handler
+    if (logoutBtn) {
+        logoutBtn.addEventListener('click', async () => {
+            try {
+                const { error } = await supabaseClient.auth.signOut();
+                if (error) throw error;
+                window.location.href = 'login.html';
+            } catch (err) {
+                console.error('Logout error:', err);
+                alert('Error logging out. Please try again.');
+            }
+        });
+    }
+});
+</script>
+
+<script>
+//Hide Navigation bar when scrolling 
+let lastScrollY = window.scrollY;
+const nav = document.querySelector('.main-nav');
+
+window.addEventListener('scroll', () => {
+    const currentScrollY = window.scrollY;
+
+    if (currentScrollY > lastScrollY && currentScrollY > 80) {
+        // Scrolling down
+        nav.classList.add('nav-hidden');
+    } else {
+        // Scrolling up
+        nav.classList.remove('nav-hidden');
+    }
+
+    lastScrollY = currentScrollY;
+});
+</script>

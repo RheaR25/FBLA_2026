@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Help Center - MHS Findr</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="dashboard-page">
+
+<!-- Navigation Bar -->
+<nav class="main-nav">
+    <div class="nav-container">
+        <div class="nav-brand">
+            <a href="index.html">MHS Findr</a>
+        </div>
+        <ul class="nav-menu">
+            <li><a href="index.html" class="nav-link">Home</a></li>
+            <li><a href="dashboard.html" class="nav-link">Dashboard</a></li>
+            <li><a href="browse.html" class="nav-link">Browse</a></li>
+            <li><a href="report.html" class="nav-link">Report</a></li>
+            <li><a href="help.html" class="nav-link active">Help</a></li>
+        </ul>
+        <div class="nav-user">
+            <span id="userEmail" class="user-email"></span>
+            <button id="logoutBtn" class="btn btn-secondary btn-nav">Log Out</button>
+        </div>
+    </div>
+</nav>
+
+<main class="main-content">
+    <div class="page-header">
+        <h1>Help Center</h1>
+        <p class="page-subtitle">Find answers and learn how to use MHS Findr</p>
+    </div>
+
+    <section class="help-section">
+        <h2>Getting Started</h2>
+        <p>
+            MHS Findr helps students and teachers manage lost and found items in a safe and organized way.
+            All posts and claims are reviewed by teachers to ensure accuracy and security.
+        </p>
+    </section>
+
+    <!-- Commonly Asked Questions Section with Drop Downs -->
+    <section class="faq-section">
+        <h2>Frequently Asked Questions</h2>
+        <br>
+        <br>
+        <div class="faq-container">
+            <div class="faq-item">
+                <button class="faq-question">How do I create an account?</button>
+                <div class="faq-answer">
+                    <p>
+                        Click <strong>Sign Up</strong>, enter your school email, create a password,
+                        select your role, and confirm your email to activate your account.
+                    </p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question">How do I report a lost or found item?</button>
+                <div class="faq-answer">
+                    <p>
+                        Go to the <strong>Report</strong> page, fill out the item details,
+                        optionally upload a photo, and submit for teacher approval.
+                    </p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question">How do I claim an item?</button>
+                <div class="faq-answer">
+                    <p>
+                        Browse approved items, click <strong>Claim</strong>, and provide proof of ownership.
+                        Teachers will review and approve or reject your claim.
+                    </p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question">Why does everything need teacher approval?</button>
+                <div class="faq-answer">
+                    <p>
+                        Teacher approval ensures safety, prevents false claims,
+                        and keeps the platform trustworthy for all students.
+                    </p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question">Who should I contact if something goes wrong?</button>
+                <div class="faq-answer">
+                    <p>
+                        Contact a teacher or school administrator who manages MHS Findr.
+                        They can assist with account, item, or claim issues.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
+<!-- Footer -->
+<footer class="main-footer">
+    <div class="footer-container">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>FBLA</h3>
+                <p>Future Business Leaders of America</p>
+            </div>
+            <div class="footer-section">
+                <h4>Quick Links</h4>
+                <ul class="footer-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="dashboard.html">Dashboard</a></li>
+                    <li><a href="browse.html">Browse</a></li>
+                    <li><a href="report.html">Report</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Support</h4>
+                <ul class="footer-links">
+                    <li><a href="help.html">Help Center</a></li>
+                    <li><a href="login.html">Login</a></li>
+                    <li><a href="signup.html">Sign Up</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 FBLA. All rights reserved.</p>
+        </div>
+    </div>
+</footer>
+
+<!-- Chatbot -->
+<div class="chatbot-container" id="chatbot">
+    <div class="chatbot-header">
+        <span>MHS Findr Help Bot</span>
+        <button id="closeChatbot">×</button>
+    </div>
+
+    <div class="chatbot-messages" id="chatbotMessages">
+        <div class="bot-message">
+            Hi! 👋 I’m the MHS Findr Help Bot.  
+            Ask me about reporting items, claiming items, or using the site.
+        </div>
+    </div>
+
+    <div class="chatbot-input">
+        <input type="text" id="chatbotInput" placeholder="Type your question..." />
+        <button id="sendMessage">Send</button>
+    </div>
+</div>
+
+<button class="chatbot-toggle" id="openChatbot">💬 Help</button>
+<script src="chatbot.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script>
+const SUPABASE_URL = 'https://jbanjopyzckxgllpyknr.supabase.co';
+const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImpiYW5qb3B5emNreGdsbHB5a25yIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjcxOTg4MzQsImV4cCI6MjA4Mjc3NDgzNH0.DSr8IgZ4DlUsr4PaPDv0mfrL6KgmTKJ7pVAcMbIghVI';
+
+const supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
+document.addEventListener('DOMContentLoaded', async () => {
+    const logoutBtn = document.getElementById('logoutBtn');
+    const userEmail = document.getElementById('userEmail');
+
+    // Display email if logged in
+    const { data: { session } } = await supabaseClient.auth.getSession();
+    if (session?.user && userEmail) {
+        userEmail.textContent = session.user.email;
+    }
+
+    // Attach logout handler
+    if (logoutBtn) {
+        logoutBtn.addEventListener('click', async () => {
+            try {
+                const { error } = await supabaseClient.auth.signOut();
+                if (error) throw error;
+                window.location.href = 'login.html';
+            } catch (err) {
+                console.error('Logout error:', err);
+                alert('Error logging out. Please try again.');
+            }
+        });
+    }
+});
+</script>
+
+<!-- FAQ Toggle Script -->
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+    const questions = document.querySelectorAll(".faq-question");
+
+    questions.forEach(question => {
+        question.addEventListener("click", () => {
+            const answer = question.nextElementSibling;
+
+            // Toggle active state
+            question.classList.toggle("active");
+
+            if (answer.style.maxHeight) {
+                answer.style.maxHeight = null;
+            } else {
+                answer.style.maxHeight = answer.scrollHeight + "px";
+            }
+        });
+    });
+});
+</script>
+
+<script>
+//Hide Navigation bar when scrolling 
+let lastScrollY = window.scrollY;
+const nav = document.querySelector('.main-nav');
+
+window.addEventListener('scroll', () => {
+    const currentScrollY = window.scrollY;
+
+    if (currentScrollY > lastScrollY && currentScrollY > 80) {
+        // Scrolling down
+        nav.classList.add('nav-hidden');
+    } else {
+        // Scrolling up
+        nav.classList.remove('nav-hidden');
+    }
+
+    lastScrollY = currentScrollY;
+});
+</script>
+
+</body>
+</html>

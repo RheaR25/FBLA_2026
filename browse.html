@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Browse Items - FBLA</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="dashboard-page">
+    <!-- Navigation Bar -->
+    <nav class="main-nav">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <a href="index.html">MHS Findr</a>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="dashboard.html" class="nav-link">Dashboard</a></li>
+                <li><a href="browse.html" class="nav-link active">Browse</a></li>
+                <li><a href="report.html" class="nav-link">Report</a></li>
+                <li><a href="help.html" class="nav-link">Help</a></li>
+            </ul>
+            <div class="nav-user">
+                <span id="userEmail" class="user-email"></span>
+                <button id="logoutBtn" class="btn btn-secondary btn-nav">Log Out</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="page-header">
+            <h1>Browse Lost & Found Items</h1>
+            <p class="page-subtitle">Search and filter through approved items</p>
+        </div>
+
+        <!-- Search and Filter Section -->
+        <div class="filter-section">
+            <div class="search-box">
+                <input 
+                    type="text" 
+                    id="searchKeyword" 
+                    placeholder="Search by keyword (item name, description)..."
+                    class="search-input"
+                >
+            </div>
+            <!-- Filter Color Drop Down -->
+            <div class="filter-row">
+                <div class="filter-group">
+                    <label for="filterColor">Color</label>
+                    <select id="filterColor" class="filter-select">
+                        <option value="">All Colors</option>
+                        <option value="Black">Black</option>
+                        <option value="White">White</option>
+                        <option value="Gray">Gray</option>
+                        <option value="Red">Red</option>
+                        <option value="Blue">Blue</option>
+                        <option value="Green">Green</option>
+                        <option value="Yellow">Yellow</option>
+                        <option value="Orange">Orange</option>
+                        <option value="Purple">Purple</option>
+                        <option value="Pink">Pink</option>
+                        <option value="Brown">Brown</option>
+                        <option value="Beige">Beige</option>
+                        <option value="Navy">Navy</option>
+                        <option value="Maroon">Maroon</option>
+                        <option value="Multi-color">Multi-color</option>
+                        <option value="Other">Other</option>
+                    </select>
+                </div>
+
+                <!-- Filter Size DropDown -->
+                <div class="filter-group">
+                    <label for="filterSize">Size</label>
+                    <select id="filterSize" class="filter-select">
+                        <option value="">All Sizes</option>
+                        <option value="Extra Small">Extra Small</option>
+                        <option value="Small">Small</option>
+                        <option value="Medium">Medium</option>
+                        <option value="Large">Large</option>
+                        <option value="Extra Large">Extra Large</option>
+                        <option value="One Size">One Size</option>
+                        <option value="N/A">N/A</option>
+                    </select>
+                </div>
+                
+                <!-- Filter Location DropDown -->
+                <div class="filter-group">
+                    <label for="filterLocation">Location</label>
+                    <input 
+                        type="text" 
+                        id="filterLocation" 
+                        placeholder="Filter by location..."
+                        class="filter-input"
+                    >
+                </div>
+
+                <!-- Clear Filters Button -->
+                <div class="filter-group">
+                    <button id="clearFilters" class="btn btn-secondary">Clear Filters</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Items Grid -->
+        <div id="itemsContainer" class="items-grid">
+            <div class="loading-items">
+                <p>Loading items...</p>
+            </div>
+        </div>
+
+        <div id="noItemsMessage" class="empty-message" style="display: none;">
+            <p>No items found. Try adjusting your filters or check back later.</p>
+        </div>
+    </main>
+
+    <!-- Item Detail Modal -->
+    <div id="itemModal" class="modal" style="display: none;">
+        <div class="modal-content">
+            <span class="modal-close">&times;</span>
+            <div id="modalBody">
+                <!-- Content will be loaded here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Claim Modal -->
+    <div id="claimModal" class="modal" style="display: none;">
+        <div class="modal-content modal-small">
+            <span class="modal-close-claim">&times;</span>
+            <h2>Claim Item</h2>
+            <form id="claimForm">
+                <div class="form-group">
+                    <label for="claimProof">Proof of Ownership *</label>
+                    <textarea 
+                        id="claimProof" 
+                        required 
+                        rows="4"
+                        placeholder="Please describe how you can prove this item belongs to you (e.g., distinctive features, when you lost it, etc.)"
+                    ></textarea>
+                    <small class="help-text">Provide details that prove this item is yours</small>
+                </div>
+                <input type="hidden" id="claimItemId" value="">
+                <div class="modal-actions">
+                    <button type="button" class="btn btn-secondary" id="cancelClaim">Cancel</button>
+                    <button type="submit" class="btn btn-primary">Submit Claim</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="main-footer">
+        <div class="footer-container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>FBLA</h3>
+                    <p>Future Business Leaders of America</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="dashboard.html">Dashboard</a></li>
+                        <li><a href="browse.html">Browse</a></li>
+                        <li><a href="report.html">Report</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Support</h4>
+                    <ul class="footer-links">
+                        <li><a href="help.html">Help Center</a></li>
+                        <li><a href="login.html">Login</a></li>
+                        <li><a href="signup.html">Sign Up</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 FBLA. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="browse.js"></script>
+
+    <!-- Chatbot display -->
+    <div class="chatbot-container" id="chatbot">
+    <div class="chatbot-header">
+        <span>MHS Findr Help Bot</span>
+        <button id="closeChatbot">×</button>
+    </div>
+
+    <div class="chatbot-messages" id="chatbotMessages">
+            <div class="bot-message">
+                Hi! 👋 I’m the MHS Findr Help Bot.  
+                Ask me about reporting items, claiming items, or using the site.
+            </div>
+        </div>
+
+        <div class="chatbot-input">
+            <input type="text" id="chatbotInput" placeholder="Type your question..." />
+            <button id="sendMessage">Send</button>
+        </div>
+    </div>
+
+<button class="chatbot-toggle" id="openChatbot">💬 Help</button>
+<script src="chatbot.js"></script>
+
+<script>
+//Hide Navigation bar when scrolling 
+let lastScrollY = window.scrollY;
+const nav = document.querySelector('.main-nav');
+
+window.addEventListener('scroll', () => {
+    const currentScrollY = window.scrollY;
+
+    if (currentScrollY > lastScrollY && currentScrollY > 80) {
+        // Scrolling down
+        nav.classList.add('nav-hidden');
+    } else {
+        // Scrolling up
+        nav.classList.remove('nav-hidden');
+    }
+
+    lastScrollY = currentScrollY;
+});
+</script>
+
+</body>
+</html>
+

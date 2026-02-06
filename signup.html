@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="auth-page">
+    <div class="container">
+        <div class="signup-card">
+            <h1>MHS Findr - Create Account</h1>
+            <p class="subtitle">Join us to get started</p>
+            
+            <!-- SignUp Form -->
+            <form id="signupForm">
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input 
+                        type="email" 
+                        id="email" 
+                        name="email" 
+                        required 
+                        placeholder="your.email@school.edu"
+                        autocomplete="email"
+                    >
+                </div>
+
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input 
+                        type="password" 
+                        id="password" 
+                        name="password" 
+                        required 
+                        placeholder="Create a strong password"
+                        autocomplete="new-password"
+                        minlength="8"
+                    >
+                </div>
+
+                <!-- Teacher Checkbox -->
+                <div class="form-group checkbox-group">
+                    <label class="checkbox-label">
+                        <input 
+                            type="checkbox" 
+                            id="isTeacher" 
+                            name="isTeacher"
+                        >
+                        <span>Are you a teacher?</span>
+                    </label>
+                </div>
+
+                <!-- Teacher Code -->
+                <div class="form-group" id="teacherCodeGroup" style="display: none;">
+                    <label for="teacherCode">Teacher Code</label>
+                    <input 
+                        type="text" 
+                        id="teacherCode" 
+                        name="teacherCode" 
+                        placeholder="Enter teacher access code"
+                    >
+                    <small class="help-text">Contact your administrator for the teacher code</small>
+                </div>
+
+                <button type="submit" class="btn btn-primary" id="submitBtn">
+                    Create Account
+                </button>
+
+                <div id="errorMessage" class="error-message" style="display: none;"></div>
+                <div id="successMessage" class="success-message" style="display: none;"></div>
+            </form>
+
+            <p class="login-link">
+                Already have an account? <a href="login.html">Log in</a>
+            </p>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="signup.js"></script>
+</body>
+</html>
+
